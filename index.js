@@ -38,12 +38,16 @@ app.post('/upload', multiPartMiddleware, (req,res)=>{
    
     var link = req.files['archivos'].path
       
-var url = 'http://66.97.44.139:3000/upload/'+ link.slice(8) 
+// var url = 'http://localhost:3000/upload/'+ link.slice(8) 
+var url = 'http://66.97.44.139/upload/'+ link.slice(8) 
 console.log({'url': url })
     res.json({'url':url });
     
     
 });
+
+app.get('*', function(req, res, next){res.sendFile(path.resolve('client/index.html'));
+}) 
 
 
 app.listen(3000)
