@@ -13,7 +13,6 @@ const cors = require('cors')
 require('./database')
 
 
-
 const multiPartMiddleware = multipart({
     uploadDir: './subidas'
 
@@ -34,11 +33,24 @@ app.use('/revista', require('./routers/routerRevista'))
 app.use('/anunciante', require('./routers/routerAnunciante'))
 app.use('/carousel', require('./routers/routerCarousel'))  //nuevo
 app.use('/upload', express.static(path.resolve('./subidas')))
+
+
 app.post('/upload', multiPartMiddleware, (req,res)=>{
    
     var link = req.files['archivos'].path
       
 // var url = 'http://localhost:3000/upload/'+ link.slice(8) 
+var url = 'http://66.97.44.139/upload/'+ link.slice(8) 
+console.log({'url': url })
+    res.json({'url':url });
+    
+    
+});
+
+app.post('/upload2', multiPartMiddleware, (req,res)=>{
+   
+    var link = req.files['upload'].path
+      
 var url = 'http://66.97.44.139/upload/'+ link.slice(8) 
 console.log({'url': url })
     res.json({'url':url });
