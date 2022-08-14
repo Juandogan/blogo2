@@ -27,16 +27,13 @@ app.use(bodyParser.urlencoded({limit: '200mb', extended: true}));
 app.use(express.json()); //ojo la posicion tiene que estar antes del app.use('/api', require('./router'))
 app.use(cors()); //ojo la posicion tiene que estar antes del app.use('/api', require('./router'))
 
-
+app.use('/',express.static('client', {redirect:false}));
 app.use('/api', require('./routers/router'))
 app.use('/ccam', require('./routers/routerCCAM'))
 app.use('/revista', require('./routers/routerRevista'))
 app.use('/anunciante', require('./routers/routerAnunciante'))
 app.use('/carousel', require('./routers/routerCarousel'))  //nuevo
 app.use('/upload', express.static(path.resolve('./subidas')))
-
-
-
 app.post('/upload', multiPartMiddleware, (req,res)=>{
    
     var link = req.files['archivos'].path
