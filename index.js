@@ -32,6 +32,7 @@ app.use('/ccam', require('./routers/routerCCAM'))
 app.use('/revista', require('./routers/routerRevista'))
 app.use('/anunciante', require('./routers/routerAnunciante'))
 app.use('/carousel', require('./routers/routerCarousel'))  //nuevo
+app.use('/guia', require('./routers/routerGuia'))  //nuevo
 app.use('/upload', express.static(path.resolve('./subidas')))
 
 
