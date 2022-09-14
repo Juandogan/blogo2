@@ -36,6 +36,7 @@ router.get('/' ,  async (req, res)=>{
         comentarios:req.body.comentarios,
         contadorComentarios:req.body.contadorComentarios,
         correos:req.body.correos,
+        vistas:req.body.vistas
         
 
             
@@ -91,6 +92,7 @@ router.get('/:_id' , async(req,res) => {
          comentarios:req.body.comentarios,
          contadorComentarios:req.body.contadorComentarios,
          correos:req.body.correos,
+         vistas:req.body.vistas
             
    
               };

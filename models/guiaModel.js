@@ -17,7 +17,8 @@ const guiaSchema = new Schema({
     imagenes:String,
     comentarios:String,
     contadorComentarios:String,
-    correos:String
+    correos:String,
+    vistas:Number
 
 
 
