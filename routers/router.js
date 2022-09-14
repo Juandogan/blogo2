@@ -43,7 +43,7 @@ router.post('/signup' , async (req, res)=>{
  const newUser = new User({ email, password, role })
   await newUser.save() 
 
-const token = jwt.sign({_id: newUser._id}, 'secretKey' )
+const token = jwt.sign({_id: newUser._id, role: newUser.role}, 'secretKey' )
  res.status(200).json({token})
 
 })
