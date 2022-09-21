@@ -53,7 +53,7 @@ const {email, password} = req.body;
 const user = await User.findOne({email});
 if(!user) return res.status(400).send('errorUsuario');
 if(user.password !== password) return res.status(400).send('errorPassword');
-const token = jwt.sign({_id: user._id},'secretKey')
+const token = jwt.sign({_id: user._id, role: user.role},'secretKey')
 console.log(token, user.email)
 return res.json(token)
 
